@@ -17,6 +17,13 @@ describe Item do
     it "is assigned a price" do
       expect(@item.price).to eq(1.99)
     end
+
+    it "should be able to be initalized with a weight" do
+      item2 = Item.new("Generic Item2",2.99,2.2)
+      expect(item2.name).to eq("Generic Item2")
+      expect(item2.price).to eq(2.99)
+      expect(item2.weight).to eq(2.2)
+    end
   end
 
   describe "Accessors" do
@@ -35,7 +42,12 @@ describe Item do
       expect(@item.description).to eq("")
       @item.description="test"
       expect(@item.description).to eq("test")
-    end    
+    end
+    it "should be able to get and set weight and default to 0" do
+      expect(@item.weight).to eq(0)
+      @item.weight=4
+      expect(@item.weight).to eq(4)
+    end      
   end
 
   describe "Methods" do
@@ -58,6 +70,15 @@ describe Item do
       result = @item.return 5
       expect(result).to eq(true)
       expect(@item.quantity).to eq(7)
+    end
+    it "get shipping weight with ship_price" do
+      expect(@item.ship_price).to eq(4 * 1.2)
+    end
+  end
+
+  describe "Class Variables" do
+    it "should have a ship_price_per_oz value of 1.2" do
+      expect(@item.ship_price_per_oz).to eq(1.2)
     end
   end
 

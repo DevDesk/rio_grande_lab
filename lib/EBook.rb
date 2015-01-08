@@ -3,8 +3,8 @@ class EBook < DigitalItem
 
     attr_accessor :author, :pages
 
-    def initialize name, price
-        super(name,price)
+    def initialize name, price, download_size=0
+        super(name,price,download_size)
         @pages=0
         @author=""
     end

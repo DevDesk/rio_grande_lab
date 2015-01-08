@@ -28,6 +28,17 @@ describe DigitalItem do
     it "defaults to a quantity of 1" do
       expect(@di.quantity).to eq(1)
     end
+    it "defaults to a weight of -1" do
+      expect(@di.weight).to eq(-1)
+    end  
+
+    it "should be able to be initalized with a download_size" do
+      item2 = DigitalItem.new("Digital Item2",2.99,11.22)
+      expect(item2.name).to eq("Digital Item2")
+      expect(item2.price).to eq(2.99)
+      expect(item2.download_size).to eq(11.22)
+      expect(item2.ship_price).to eq(false)
+    end      
   end
 
 
@@ -45,7 +56,12 @@ describe DigitalItem do
       expect(@di.description).to eq("")
       @di.description="test"
       expect(@di.description).to eq("test")
-    end      
+    end 
+    it "should be able to get and set download_size" do
+      expect(@di.download_size).to eq(0)
+      @di.download_size=123.12
+      expect(@di.download_size).to eq(123.12)
+    end  
   end
 
   describe "Methods" do
@@ -65,6 +81,10 @@ describe DigitalItem do
       result = @di.return 5
       expect(result).to eq(true)
       expect(@di.quantity).to eq(1)
+    end
+
+    it "should get a value of false for ship_price" do
+      expect(@di.ship_price).to eq(false)
     end
   end  
 

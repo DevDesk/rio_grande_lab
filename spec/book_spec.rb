@@ -26,6 +26,13 @@ describe "Initialization" do
     it "is assigned a price" do
       expect(@book.price).to eq(12.99)
     end
+
+    it "should be able to be initalized with a weight" do
+      item2 = Book.new("Generic Item2",2.99,2.2)
+      expect(item2.name).to eq("Generic Item2")
+      expect(item2.price).to eq(2.99)
+      expect(item2.weight).to eq(2.2)
+    end    
   end
 
   #check getters and setters

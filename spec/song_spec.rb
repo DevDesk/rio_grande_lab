@@ -26,6 +26,14 @@ describe "Initialization" do
     it "is assigned a price" do
       expect(@song.price).to eq(12.99)
     end
+
+    it "should be able to be initalized with a download_size" do
+      item2 = Song.new("Digital Item2",2.99,11.22)
+      expect(item2.name).to eq("Digital Item2")
+      expect(item2.price).to eq(2.99)
+      expect(item2.download_size).to eq(11.22)
+      expect(item2.ship_price).to eq(false)
+    end      
   end
 
   #check getters and setters
