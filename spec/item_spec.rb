@@ -5,6 +5,11 @@ describe Item do
 
   before(:context) do
     @item = Item.new("Generic Item",1.99)
+    #@item2 = Item.new("2nd Item",1.99,30)  other option but not preferred. crashes all, see last accessor below for better option
+  end
+
+  before(:context) do
+    @item = Item.new("Generic Item",1.99,30)
   end
 
   describe "Initialization" do
@@ -35,7 +40,26 @@ describe Item do
       expect(@item.description).to eq("")
       @item.description="test"
       expect(@item.description).to eq("test")
-    end    
+    end
+    it "should be able to get and set run_time" do
+      expect(@item.run_time).to eq(0)
+      @item.run_time=100
+      expect(@item.run_time).to eq(100)
+    end
+    it "should be able to get and set weight" do
+      expect(@item.weight).to eq(0)
+      @item.weight=100
+      expect(@item.weight).to eq(100)
+    end
+    it "ship rate per oz should always be 1.2" do
+      expect(@item.ship_price_per_oz).to eq (1.2)
+    end
+    # it "should be able to be initalized with a weight" do
+    #   item2 = Item.new("Generic Item2",2.99,2.2)
+    #   expect(item2.name).to eq("Generic Item2")
+    #   expect(item2.price).to eq(2.99)
+    #   expect(item2.weight).to eq(2.2)
+    # end
   end
 
   describe "Methods" do
@@ -53,7 +77,21 @@ describe Item do
       result = @item.sell 3
       expect(result).to eq(true)
       expect(@item.quantity).to eq(2)
-    end    
+    end
+    it "should be able to return items and update quantity" do
+      result = @item.return 3
+      expect(result).to eq(true)
+      expect(@item.quantity).to eq(5)
+    end
+    it "should return product of weight times ship_price_per_oz" do
+      expect(@item.weight=0)
+      @item.weight=100
+      expect(@item.weight=100)
+      result = @item.ship_price
+      expect(result).to eq(true)
+      # expect(@item.ship_price).to eq(120)
+      # expect(@item.shop_price).to eq(100 * 1.2)    this looks above at what I set price
+    end
   end
 
 end
