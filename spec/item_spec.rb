@@ -53,7 +53,12 @@ describe Item do
       result = @item.sell 3
       expect(result).to eq(true)
       expect(@item.quantity).to eq(2)
-    end    
+    end   
+    it "should be able to take returns" do
+      result = @item.return 5
+      expect(result).to eq(true)
+      expect(@item.quantity).to eq(7)
+    end
   end
 
 end

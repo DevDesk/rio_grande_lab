@@ -22,4 +22,10 @@ class Item
         @quantity += amount
         true
     end
+
+    def return amount
+        @quantity += amount
+        true
+    end
+
 end

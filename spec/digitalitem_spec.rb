@@ -58,10 +58,14 @@ describe DigitalItem do
       result = @di.sell 99
       expect(result).to eq(true)
     end  
-
     it "should not change quantity on sell" do
       expect(@di.quantity).to eq(1)
-    end  
+    end 
+    it "returns should not raise quantity" do
+      result = @di.return 5
+      expect(result).to eq(true)
+      expect(@di.quantity).to eq(1)
+    end
   end  
 
 end

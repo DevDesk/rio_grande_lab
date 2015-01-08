@@ -14,4 +14,8 @@ class DigitalItem < Item
         true
     end
     
+    def return amount
+        true
+    end
+
 end
