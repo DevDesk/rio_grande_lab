@@ -20,6 +20,7 @@ class ClothingItem < Item
     end
 
     def stock amount, size
+        # @quantities[size] ||= 0
         @quantities[size]=0 unless @quantities.key?(size)
         @sizes.push(size) unless @sizes.include? size
         @quantities[size] += amount

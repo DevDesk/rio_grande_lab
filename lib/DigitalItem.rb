@@ -15,11 +15,13 @@ class DigitalItem < Item
     end
 
     def sell amount
+        @@total_sales += amount
         true
     end
     
     def return amount
         true
     end
+
 
 end

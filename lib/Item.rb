@@ -4,6 +4,8 @@ class Item
 
     @@ship_price_per_oz=1.2
 
+    @@total_sales = 0
+
     def initialize name, price, weight=0
         @name = name
         @price = price
@@ -15,6 +17,7 @@ class Item
     def sell amount
         if @quantity >= amount
             @quantity -= amount
+            @@total_sales += amount
             true
         else
             false
@@ -38,6 +41,10 @@ class Item
     def ship_price
         return false if @weight == -1
         @@ship_price_per_oz * @weight
+    end
+
+    def total_sales
+        @@total_sales
     end
 
 end
