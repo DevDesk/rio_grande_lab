@@ -15,6 +15,11 @@ describe "Initialization" do
     end
 
     #check that it is an extended from Item
+    it "is an instance of the DigitalItem class" do
+      expect(@song).to be_kind_of(DigitalItem)
+    end    
+
+    #check that it is an extended from Item
     it "is an instance of the Item class" do
       expect(@song).to be_kind_of(Item)
     end

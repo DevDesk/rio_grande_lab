@@ -7,6 +7,9 @@ require './lib/DigitalItem'
 require './lib/EBook'
 require './lib/Movie'
 require './lib/Song'
+require './lib/ClothingItem'
+require './lib/Shirt'
+require './lib/Pants'
 
 # Usage Example (in terminal)
 #
