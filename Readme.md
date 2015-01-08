@@ -100,6 +100,16 @@ There are many times of items and each has unique attributes. For starters lets 
     * Producer
 
 
+You should NOT add the new attributes to the Initializer.
+
+**Usage Example**
+
+```ruby
+b = Book.new "Book Title", 12.99
+b.pages = 33
+b.author = "Author Name"
+```
+
 ###Digital Items
 
 Oh no the future is here!! Now we need to support digital items. Digital items are things that are downloaded and therefore they do not have a finite quantity.
@@ -231,7 +241,7 @@ The below code should work as expected on your finished code
 
 ```ruby
 #create a new shirt, for $19.99 that weighs 12 ounces
-shirt = new Shirt "Bob Ross T-Shirt", 19.99, 12
+shirt = Shirt.new "Bob Ross T-Shirt", 19.99, 12
 
 #returns: []  (there are no sizes defined)
 shirt.sizes
