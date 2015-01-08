@@ -8,11 +8,6 @@ describe Book do
     @book = Book.new("Book Title",12.99)
   end
 
-  
-  
-  
-  
-
 describe "Initialization" do
     #check that it is an instance of Book
     it "is an instance of the Item class" do
